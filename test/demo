@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import 'package:mywallet/widgets/widgets_1.dart';
+import 'package:mywallet/AppColors.dart';
+
+void main(){
+  runApp(mywallet());
+}
+
+class mywallet extends StatelessWidget {
+  const mywallet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: AppColors.primary,
+
+        appBar: AppBar(
+          title: Text("My Wallet",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 25),),
+          backgroundColor: AppColors.primary,
+          toolbarHeight: 100,
+        ), // AppBar
+
+
+        body: Padding(
+            padding: EdgeInsetsGeometry.fromLTRB(20,0,0,0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              elvcontainer(AppColors.containerskyblue, 100, 350, "Available Balance", 13, Colors.black, "₹52,450", 25),
+
+
+              Row(
+                spacing: 18,
+                children: [
+                  outcontainer(AppColors.containergreen, 90, 105, AppColors.textgreen, AppColors.textgreen, "Send", 16),
+                  outcontainer(AppColors.containeryellow, 90, 105, AppColors.textyellow, AppColors.textyellow, "Recieve", 16),
+                  outcontainer(AppColors.containerpurple, 90, 105, AppColors.textpurple, AppColors.textpurple, "Pay Bills", 16),
+                ],
+              ),
+
+              sizedbox(20, 0),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: colortext("Recent Transactions", Colors.black, 18),
+              ),
+
+              elvcontainer2(Colors.white, 60, 350, "Amazon", 16, Colors.redAccent, "- ₹1,299", 18),
+              elvcontainer2(Colors.white, 60, 350, "Salary", 16, Colors.green, "+ ₹40,000", 18),
+              elvcontainer2(Colors.white, 60, 350, "Electricity Bill", 16, Colors.redAccent, "- ₹2,100", 18),
+
+
+            ], //children of Column 1
+
+          ), //Column 1
+        ), //Padding
+      ), //Scaffold
+    ); // Material App
+  } //Widget
+}
